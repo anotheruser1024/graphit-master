@@ -1,14 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_nav import Nav
-from flask_nav.elements import Navbar, Subgroup, Separator, View, Link, Text
-from os.path import join, dirname, realpath
-import os
+from flask_nav.elements import Navbar, View
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 nav = Nav(app)
 app.config.from_object('config.Development')
+
 
 
 @nav.navigation()
@@ -20,6 +19,4 @@ def mynavbar():
     )
 
 
-
-
-from web import routes
+from web.static.uploads import routes
