@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 nav = Nav(app)
-
+app.config.from_object('config.Development')
 
 
 @nav.navigation()
@@ -20,8 +20,6 @@ def mynavbar():
     )
 
 
-app.config['UPLOAD_FOLDER'] = join(dirname(realpath(__file__)), 'static/uploads/')
-app.config['ALLOWED_EXTENSIONS'] = set(['gml', 'txt'])
-app.config['SECRET_KEY'] = 'd22068be55575b2dabd7f45817036a97bd499d81fb8e4098'
+
 
 from web import routes
