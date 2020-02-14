@@ -1,0 +1,5 @@
+config.py
+_pychche_
+.idea
+/venv/*
+/web/upload/*

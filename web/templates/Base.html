@@ -1,0 +1,26 @@
+{% extends "bootstrap/base.html" %}
+
+
+
+
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block navbar %}{{nav.mynavbar.render()}}{% endblock %}
+
+
+{%- block jumbotron %}
+
+{%- endblock jumbotron %}
+
+{%- block content %}
+
+{{ super() }}
+
+
+{{super()}}
+{%- block footer %}
+<footer>&copy; 2016 Awesome, Inc.</footer>
+{%- endblock footer %}
+{% endblock %}
+

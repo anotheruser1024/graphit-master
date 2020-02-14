@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="d-flex flex-column h-100">
+    <div class="container">
+      <div class="header mt-3">
+        <h3 class="text-muted">Uploaded files</h3>
+      </div>
+      <hr/>
+
+      <div>
+        <p class="lead">This is a list of the files you just uploaded:</p>
+        <ul>
+          {% for file in filenames %}
+            <li>{{ file }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+{% endblock content %}
