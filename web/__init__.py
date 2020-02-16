@@ -19,4 +19,4 @@ def mynavbar():
     )
 
 
-from web.static.uploads import routes
+from web import routes

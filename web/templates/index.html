@@ -1,5 +1,5 @@
 {% extends "bootstrap/base.html" %}
-
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
 
@@ -17,6 +17,15 @@
           </div>
         </div>
       </form>
+    </div>
+    <div>
+    <h1>Test of Form</h1>
+        <form method="POST" enctype="multipart/form-data">
+
+            {{ form.hidden_tag() }}
+            {{ wtf.form_field(form.choosefile) }}
+            {{ wtf.form_field(form.submit) }}
+        </form>
     </div>
 
 

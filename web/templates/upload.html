@@ -11,9 +11,12 @@
       <div>
         <p class="lead">This is a list of the files you just uploaded:</p>
         <ul>
-          {% for file in filenames %}
+          {% for file in session["filename"] %}
             <li>{{ file }}</li>
           {% endfor %}
+        {% for file in graph %}
+            {{ file }}
+        {% endfor %}
         </ul>
       </div>
 
