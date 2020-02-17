@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, session
 from flask_bootstrap import Bootstrap
 from flask_nav import Nav
 from flask_nav.elements import Navbar, View
@@ -12,11 +12,24 @@ app.config.from_object('config.Development')
 
 @nav.navigation()
 def mynavbar():
-    return Navbar(
+
+    if 'filename' not in session:
+        return Navbar(
+
+            'Graphit',
+            View('Home', 'home'),
+            View('Upload', 'upload')
+
+        )
+    else:
+         return Navbar(
+
         'Graphit',
         View('Home', 'home'),
-        View('Upload', 'upload')
-    )
+        View('Upload', 'upload'),
+        View('filename', 'home')
+        )
+
 
 
 from web import routes

@@ -1,13 +1,18 @@
 
 from web import app
-from flask import render_template, request, redirect, session
+from flask import render_template, redirect, session
 from flask_uploads import configure_uploads, UploadSet
 from web.forms import MyUploadFile
-import os
-from datetime import datetime
+# imports will be needed later
+# import requests
+# import os
+# import networkx as nx
+# from networkx import NetworkXError as NetworkXError
+# from datetime import datetime
 
 graph = UploadSet('graph', app.config['ALLOWED_EXTENSIONS'])
 configure_uploads(app, graph)
+
 
 @app.route("/",  methods=['GET', 'POST'])
 def home():
@@ -17,13 +22,17 @@ def home():
 
         filename = graph.save(form.choosefile.data)
         print(filename)
-        if filename not in session:
+        if 'filename' not in session:
             session["filename"] = []
-            session["filename"].append(filename)
+            sessionList = session['filename']
+            sessionList.append(filename)
+            session['filename'] = sessionList
+
         else:
-            session["filename"].append(filename)
+            sessionList = session["filename"]
 
-
+            sessionList.append(filename)
+            session['filename'] = sessionList
 
         return redirect('/upload')
 
@@ -32,6 +41,6 @@ def home():
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload():
-    if "filename" in session:
-        files = session["filename"]
+    files = session.get('filename')
+
     return render_template("upload.html", title='Upload', files='files')
