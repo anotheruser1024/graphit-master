@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="C:\Users\user\Documents\ComputerScience year 2\CM2305 - Group Project\CourseWork\Grouptask\Grouptask\Graphit\graphit-master\venv"
+$env:VIRTUAL_ENV="C:\graphit-master\venv"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name

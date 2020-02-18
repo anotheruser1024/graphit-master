@@ -11,12 +11,18 @@
       <div>
         <p class="lead">This is a list of the files you just uploaded:</p>
         <ul>
-          {% for file in filenames %}
+          {% for file in session["filename"] %}
             <li>{{ file }}</li>
           {% endfor %}
+        {% for file in graph %}
+            {{ file }}
+        {% endfor %}
         </ul>
       </div>
-
-    </div>
+        <div>
+            <script src="www.d3js.org/d3.v5.js"></script>
+            <script type="", src="app.js"></script>
+        </div>
   </div>
+</div>
 {% endblock content %}

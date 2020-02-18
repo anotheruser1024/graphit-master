@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\user\Documents\ComputerScience year 2\CM2305 - Group Project\CourseWork\Grouptask\Grouptask\Graphit\graphit-master\venv"
+VIRTUAL_ENV="C:\graphit-master\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
