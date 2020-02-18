@@ -2,6 +2,7 @@ from web import app
 import networkx as nx
 import simplejson as json
 import networkx.readwrite as json_graph
+from networkx.exception import NetworkXError
 import os
 
 filepath = os.path.join(app.config['UPLOADS_DEFAULT_DEST']+ 'graph'+ session['filename'][1])
@@ -11,21 +12,26 @@ def gmlToNetxOBJ(path, fileName):
 
     try:
         graph = nx.read_gml(filepath + fileName, label='id')
+        return graph
 
-    except KeyError:
-
+    except NetworkXError:
+        print({{NetworkXError}})
         try:
-            graph = nx.read_gml(filepath + fileName)
-        except KeyError:
-            return -1
+            graph = nx.read_gml(filepath + '/' + fileName)
+            return graph
+        except NetworkXError:
+            print([{NetworkXError}])
 
-    return graph;
 
 
 def netxObjToJson(graph):
-    jsonobj = json_graph.node_link_data(graph)
+    try:
+        jsonobj = json_graph.node_link_data(graph)
+        return jsonobj
+    except NetworkXError:
+        print({ NetworkXError})
+        return -1
 
-    return jsonobj
 
 
 def rewriteFileAsJson(filename, jsonOBj):
