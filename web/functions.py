@@ -1,6 +1,6 @@
 from web import app
 import networkx as nx
-import simplejson as json
+import simplejson as json #https://simplejson.readthedocs.io/en/latest/#basic-usage
 import networkx.readwrite as json_graph
 from networkx.exception import NetworkXError
 import os

@@ -1,7 +1,7 @@
-{% extends "bootstrap/base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
+{% extends "bootstrap/base.html" %} {#links file index html to flask boot strap found in venv>lib>site-packages>flask-bootstrap#}
+{% import "bootstrap/wtf.html" as wtf %} {# apllies additional function from flask-bootstrap interreation to wtf-flask #}
 
-{% block content %}
+{% block content %} {# template for custom page content in body #}
 
     <div class="container mt-5">
 
@@ -22,9 +22,9 @@
     <h1>Test of Form</h1>
         <form method="POST" enctype="multipart/form-data">
 
-            {{ form.hidden_tag() }}
-            {{ wtf.form_field(form.choosefile) }}
-            {{ wtf.form_field(form.submit) }}
+            {{ form.hidden_tag() }} {# renders container for form and adds boiler plate like csfr token ect #}
+            {{ wtf.form_field(form.choosefile) }} {# renders the button with for upload file loads flsk messages for form #}
+            {{ wtf.form_field(form.submit) }} {# renders from submit #}
         </form>
     </div>
 
