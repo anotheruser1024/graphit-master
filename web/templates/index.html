@@ -21,9 +21,20 @@
     <div>
     <h1>Test of Form</h1>
         <form method="POST" enctype="multipart/form-data">
+            {% block styles %} {# overrides label for form #}
+            {{super()}} {# tells jinja this is a override to styles #}
+            <style>
+              .control-label {display: none;}
+            </style>
+            {% endblock %}
+            {# usefull links
+            https://bootstrap-flask.readthedocs.io/en/latest/macros.html
+            https://john.soban.ski/pass-bootstrap-html-attributes-to-flask-wtforms.html TUTORIAL
 
+
+            #}
             {{ form.hidden_tag() }} {# renders container for form and adds boiler plate like csfr token ect #}
-            {{ wtf.form_field(form.choosefile) }} {# renders the button with for upload file loads flsk messages for form #}
+            {{ wtf.form_field(form.choosefile,class="btn btn-default") }} {# renders the button as class = defualt #}
             {{ wtf.form_field(form.submit) }} {# renders from submit #}
         </form>
     </div>

@@ -4,9 +4,10 @@ from flask_nav import Nav
 from flask_nav.elements import Navbar, View
 
 app = Flask(__name__)
+app.config.from_object('config.Development')
 bootstrap = Bootstrap(app)
 nav = Nav(app)
-app.config.from_object('config.Development')
+
 
 
 
@@ -29,7 +30,6 @@ def mynavbar():
         View('Upload', 'upload'),
         View('filename', 'home')
         )
-
 
 
 from web import routes

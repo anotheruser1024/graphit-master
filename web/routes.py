@@ -3,6 +3,7 @@ from web import app
 from flask import render_template, redirect, session
 from flask_uploads import configure_uploads, UploadSet
 from web.forms import MyUploadFile
+
 from networkx.exception import NetworkXError
 # imports will be needed later
 # import requests
