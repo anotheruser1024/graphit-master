@@ -2,7 +2,7 @@
 from web import app
 from flask import render_template, redirect, session
 from flask_uploads import configure_uploads, UploadSet
-from web.forms import MyUploadFile
+from web.forms import UploadFile
 
 from networkx.exception import NetworkXError
 # imports will be needed later
@@ -19,7 +19,7 @@ configure_uploads(app, graph)  # instantiates file upload object
 @app.route("/",  methods=['GET', 'POST'])
 def home():
     # gets class objects with form
-    form = MyUploadFile()
+    form = UploadFile()
 
     if form.validate_on_submit(): #vaildats form
 
