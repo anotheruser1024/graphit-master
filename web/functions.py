@@ -1,13 +1,13 @@
 from web import app
 import networkx as nx
 import simplejson as json #https://simplejson.readthedocs.io/en/latest/#basic-usage
-import networkx.readwrite as json_graph
+
 from networkx.exception import NetworkXError
 import os
 
 filepath = os.path.join(app.config['UPLOADS_DEFAULT_DEST']+ 'graph'+ session['filename'][1])
 
-def gmlToNetxOBJ(path, fileName):
+def gmlToNetxOBJ(path, fileName):def gmlToNetxOBJ(path, fileName):
     filepath = path + "/" + fileName
 
     try:
@@ -26,7 +26,7 @@ def gmlToNetxOBJ(path, fileName):
 
 def netxObjToJson(graph):
     try:
-        jsonobj = json_graph.node_link_data(graph)
+        jsonobj = nx.node_link_data(graph)
         return jsonobj
     except NetworkXError:
         print({ NetworkXError})

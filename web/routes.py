@@ -1,14 +1,17 @@
 
 from web import app
-from flask import render_template, redirect, session
-from flask_uploads import configure_uploads, UploadSet
+from flask import render_template, redirect, session,url_for
+from flask_uploads import configure_uploads, UploadSet, send_from_directory
 from web.forms import UploadFile
+import json as json
+
 
 from networkx.exception import NetworkXError
 # imports will be needed later
 # import requests
-# import os
-# import networkx as nx
+from os.path import join, dirname, realpath
+import os
+import networkx as nx
 # from networkx import NetworkXError as NetworkXError
 # from datetime import datetime
 
@@ -44,6 +47,15 @@ def home():
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload():
-    files = session.get('filename')
+    #graph = 'static/uploads/graph/dolphins.gml'
+    #files ="static\\uploads\\graph", 'dolphins.gml'
+    #file =  os.path.join(app.config['UPLOADS_DEFAULT_DEST'] + 'graph' + '/dolphins.gml')
+    #print(os.path.isfile(file))
+    #file = nx.read_gml(file)
+    #file = nx.node_link_data(file)
+    #file = json.dumps(file)
 
-    return render_template("upload.html", title='Upload', files='files')
+    #print(type(file))
+
+    #{url_for('static', filename='uploads/graph/karate.json')}}
+    return render_template("upload.html", title='Upload', data='data')
